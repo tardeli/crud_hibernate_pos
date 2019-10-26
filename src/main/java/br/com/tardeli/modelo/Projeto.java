@@ -6,12 +6,15 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 /**
  *
  * @author Tardeli da Rocha <tardeliltda@hotmail.com>
  */
+@NamedQuery(name="Projeto.buscaPorNome", query = "select p from Projeto p where p.nome = :nome")
+@NamedQuery(name="Projeto.buscaProjetosPorVereador", query = "select p from Projeto p where p.vereador = :vereador")
 @Entity
 @Table(name = "Projeto")
 public class Projeto implements Serializable {
@@ -78,6 +81,6 @@ public class Projeto implements Serializable {
 
     @Override
     public String toString() {
-        return "Projeto{" + "codigo=" + codigo + ", nome=" + nome + ", aprovado=" + aprovado + ", apresentado=" + apresentado + ", vereador=" + vereador + '}';
+        return "Projeto{" + "codigo=" + codigo + ", nome=" + nome + ", aprovado=" + aprovado + ", apresentado=" + apresentado + ", vereador=" + vereador.getNome() + '}';
     }
 }

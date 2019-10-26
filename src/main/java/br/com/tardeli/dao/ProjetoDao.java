@@ -71,21 +71,22 @@ public class ProjetoDao implements Crud<Projeto> {
     public List buscarProjetosPorVereador(Vereador vereador) {
         
         try {
-            Query query = manager.createQuery("select p from Projeto p where p.vereador = :vereador");
-            query.setParameter("vereador", vereador);
-            return query.getResultList();
+            return this.manager
+                    .createNamedQuery("Projeto.buscaProjetosPorVereador", Projeto.class)
+                    .setParameter("vereador", vereador)
+                    .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } 
         return null;
     }
     
-     public Object buscarProjetoPorNome(String nome) {
-
+     public Projeto buscarProjetoPorNome(String nome) {
         try {
-            Query query = manager.createQuery("select p from Projeto p where p.nome = :nome");
-            query.setParameter("nome", nome);
-            return query.getSingleResult();
+            return this.manager
+                    .createNamedQuery("Projeto.buscaPorNome", Projeto.class)
+                    .setParameter("nome", nome)
+                    .getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();
         }

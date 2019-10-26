@@ -63,7 +63,7 @@ public class VereadorControle {
         return listaObjs;
     }
     
-    public Object buscarDadosVereadorPorNome(String nome) {
+    public Vereador buscarDadosVereadorPorNome(String nome) {
         try {
            return dao.buscarDadosVereadorPorNome(nome);
         } catch (Exception e) {

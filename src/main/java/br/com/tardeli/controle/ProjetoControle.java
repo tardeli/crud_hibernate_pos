@@ -62,7 +62,7 @@ public class ProjetoControle {
         return null;
     }
     
-     public Object buscarProjetoPorNome(String nome) {
+     public Projeto buscarProjetoPorNome(String nome) {
         try {
             return dao.buscarProjetoPorNome(nome);
         } catch (Exception e) {

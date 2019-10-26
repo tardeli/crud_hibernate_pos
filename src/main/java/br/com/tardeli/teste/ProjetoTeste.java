@@ -20,7 +20,7 @@ public class ProjetoTeste {
         
         //BUSCAR O PROJETO PELO NOME
         System.out.println("BUSCAR O PROJETO PELO NOME");
-        Projeto projeto = (Projeto) projetoControle.buscarProjetoPorNome("Projeto-2");
+        Projeto projeto = projetoControle.buscarProjetoPorNome("Projeto-2");
         System.out.println(projeto.toString());
         
         //BUSCAR OS PROJETOS CRIADOS POR UM VEREADOR

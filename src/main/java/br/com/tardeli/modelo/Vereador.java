@@ -14,11 +14,15 @@ import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+@NamedQuery(name="Vereador.buscarDadosVereadorPorNome", query = "select v from Vereador v where v.nome = :nome")
+@NamedQuery(name="Vereador.buscarVereadoresAssociadosPorDatas", query = "select v from Vereador v where v.dataAssociacao between :data_1 and :data_2")
+@NamedQuery(name="Vereador.buscarVereadoresPorPartido", query = "select v from Vereador v where v.partido = :partido")
 @Entity
 @Table(name = "Vereador")
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)

@@ -8,7 +8,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
 
 /**
  *
@@ -72,21 +71,22 @@ public class VereadorDao implements Crud<Vereador> {
     public List buscarVereadoresPorPartido(Partido partido) {
         
         try {
-            Query query = manager.createQuery("select v from Vereador v where v.partido = :partido");
-            query.setParameter("partido", partido);
-            return query.getResultList();
+            return this.manager
+                    .createNamedQuery("Vereador.buscarVereadoresPorPartido", Vereador.class)
+                    .setParameter("partido", partido)
+                    .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } 
         return null;
     }
     
-    public Object buscarDadosVereadorPorNome(String nome) {
-
+    public Vereador buscarDadosVereadorPorNome(String nome) {
         try {
-            Query query = manager.createQuery("select v from Vereador v where v.nome = :nome");
-            query.setParameter("nome", nome);
-            return query.getSingleResult();
+            return this.manager
+                    .createNamedQuery("Vereador.buscarDadosVereadorPorNome", Vereador.class)
+                    .setParameter("nome", nome)
+                    .getSingleResult();
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -96,10 +96,11 @@ public class VereadorDao implements Crud<Vereador> {
     public List buscarVereadoresAssociadosPorDatas(Date d_Inicial, Date d_Final) {
         
         try {
-            Query query = manager.createQuery("select v from Vereador v where v.dataAssociacao between :data_1 and :data_2");
-            query.setParameter("data_1", d_Inicial);
-            query.setParameter("data_2", d_Final);
-            return query.getResultList();
+            return this.manager
+                    .createNamedQuery("Vereador.buscarVereadoresAssociadosPorDatas", Vereador.class)
+                    .setParameter("data_1", d_Inicial)
+                    .setParameter("data_2", d_Final)
+                    .getResultList();
         } catch (Exception e) {
             e.printStackTrace();
         } 
