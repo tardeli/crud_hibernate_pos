@@ -21,11 +21,11 @@ public class ProjetoTeste {
         //BUSCAR O PROJETO PELO NOME
         System.out.println("BUSCAR O PROJETO PELO NOME");
         Projeto projeto = projetoControle.buscarProjetoPorNome("Projeto-2");
-        System.out.println(projeto.toString());
+        System.out.println(projeto.toString());        
         
         //BUSCAR OS PROJETOS CRIADOS POR UM VEREADOR
         System.out.println("BUSCAR OS PROJETOS CRIADOS POR UM VEREADOR");
-        Vereador v = vereadorControle.buscarVereadorPorCodigo(1L);
+        Vereador v = vereadorControle.buscarVereadorPorCodigo(13L);
         listaObjs = projetoControle.buscarProjetosPorVereador(v);
         
         for (Projeto p : listaObjs) {

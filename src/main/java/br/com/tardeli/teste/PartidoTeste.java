@@ -7,6 +7,6 @@ package br.com.tardeli.teste;
 public class PartidoTeste {
 
     public static void main(String[] args) {
-
+        
     }
 }

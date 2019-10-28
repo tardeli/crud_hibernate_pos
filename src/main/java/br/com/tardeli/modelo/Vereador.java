@@ -4,6 +4,8 @@ package br.com.tardeli.modelo;
  *
  * @author Tardeli da Rocha <tardeliltda@hotmail.com>
  */
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -39,7 +41,9 @@ public class Vereador extends Pessoa {
     public Vereador() {
 
     }
-
+    
+    
+    
     public Vereador(Date dataAssociacao, Partido partido, String nome) {
         super(nome);
         this.dataAssociacao = dataAssociacao;
@@ -71,18 +75,33 @@ public class Vereador extends Pessoa {
     }
 
     public int qtdeProjetosApresentados() {
-        return 0;
+        int aux = 0;
+        for (Projeto projeto : projetos) {
+            if(projeto.isApresentado()){
+                aux++;
+            }
+        }
+        return aux;
     }
 
     public int qtdeProjetosAprovados() {
-        return 0;
+        int aux = 0;
+        for (Projeto projeto : projetos) {
+            if(projeto.isAprovado()){
+                aux++;
+            }
+        }
+        return aux;
     }
 
     public void adicionaProjeto(Projeto projeto) {
-
+        this.getProjetos().add(projeto);
     }
 
     public float desempenho() {
+        if(qtdeProjetosAprovados()!=0 && qtdeProjetosApresentados()!=0 ){
+            return (float) qtdeProjetosAprovados() / qtdeProjetosApresentados() * 100;
+        }
         return 0;
     }
 
@@ -92,17 +111,23 @@ public class Vereador extends Pessoa {
     }
 
     public String projetos() {
+        NumberFormat numberFormat = new DecimalFormat("0.00");
         String dados = "";
         for (Projeto projeto : projetos) {          
-            dados += "\n  Projeto{" + "codigo=" + projeto.getCodigo() + ", nome=" + projeto.getNome() + ", aprovado=" + projeto.isAprovado() + ", apresentado=" + projeto.getVereador().getCodigo() + '}';
+            dados += "\n  Projeto{" + "codigo=" + projeto.getCodigo() + ", nome=" + projeto.getNome() + ", aprovado=" + projeto.isAprovado() + ", apresentado=" + projeto.isApresentado() + '}';
         }
         dados += "]";
+        dados += "\n    QTDE de projetos apresentados: "+qtdeProjetosApresentados();
+        dados += "\n    QTDE de projetos aprovados: "+qtdeProjetosAprovados();
+        dados += "\n    DESEMPENHO: "+numberFormat.format(desempenho())+"%";
+        dados += "}";
+        dados += "\n===============================================================================================================================";
         return dados;
     }
 
     @Override
     public String toString() {
-        return super.toString() + ", dataAssociacao=" + dataAssociacao + ", partido=" + partido + ", Projetos [" + projetos() + '}';
+        return super.toString() + ", dataAssociacao=" + dataAssociacao + ", partido=" + partido + ", Projetos [" + projetos();
     }
 
 }

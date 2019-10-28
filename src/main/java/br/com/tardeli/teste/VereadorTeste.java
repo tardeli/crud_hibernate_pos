@@ -3,6 +3,7 @@ package br.com.tardeli.teste;
 import br.com.tardeli.controle.PartidoControle;
 import br.com.tardeli.controle.VereadorControle;
 import br.com.tardeli.modelo.Partido;
+import br.com.tardeli.modelo.Projeto;
 import br.com.tardeli.modelo.Vereador;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -20,7 +21,7 @@ public class VereadorTeste {
         VereadorControle vereadorControle = new VereadorControle();
         PartidoControle partidoControle = new PartidoControle();
         List<Vereador> listaObjs = new ArrayList<>();
-       
+               
         //BUSCAR OS DADOS DE UM VEREADOR PELO NOME
         System.out.println("BUSCAR OS DADOS DE UM VEREADOR PELO NOME");
         Vereador v = (Vereador) vereadorControle.buscarDadosVereadorPorNome("Tardeli da Rocha");

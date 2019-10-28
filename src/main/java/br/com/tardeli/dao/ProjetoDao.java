@@ -15,7 +15,7 @@ import javax.persistence.Query;
  */
 public class ProjetoDao implements Crud<Projeto> {
 
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory("atividade");
+    EntityManagerFactory factory = EntityManagerProvider.getInstance().getFactory();
     EntityManager manager = factory.createEntityManager();
     private Projeto p = new Projeto();
 

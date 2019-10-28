@@ -1,5 +1,6 @@
-package br.com.tardeli.teste;
+package br.com.tardeli.testeconsole;
 
+import br.com.tardeli.teste.*;
 import br.com.tardeli.controle.PartidoControle;
 import br.com.tardeli.controle.ProjetoControle;
 import br.com.tardeli.controle.VereadorControle;

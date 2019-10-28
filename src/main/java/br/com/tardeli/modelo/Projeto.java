@@ -81,6 +81,6 @@ public class Projeto implements Serializable {
 
     @Override
     public String toString() {
-        return "Projeto{" + "codigo=" + codigo + ", nome=" + nome + ", aprovado=" + aprovado + ", apresentado=" + apresentado + ", vereador=" + vereador.getNome() + '}';
+        return "Projeto{" + "codigo=" + codigo + ", nome=" + nome + ", aprovado=" + aprovado + ", apresentado=" + apresentado + ", vereador=" + vereador.getNome() +", codigo=" + vereador.getCodigo() + '}';
     }
 }

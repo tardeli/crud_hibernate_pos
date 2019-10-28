@@ -15,7 +15,7 @@ import javax.persistence.Persistence;
  */
 public class VereadorDao implements Crud<Vereador> {
 
-    EntityManagerFactory factory = Persistence.createEntityManagerFactory("atividade");
+    EntityManagerFactory factory = EntityManagerProvider.getInstance().getFactory();
     EntityManager manager = factory.createEntityManager();
     private Vereador p = new Vereador();
 
