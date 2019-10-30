@@ -101,7 +101,7 @@ public class Principal {
                     tp.buscarPorIdConsole();
                     break;
                 case 4:
-                    tp.excluirConsole();
+                    System.out.println("Você não possui permissão para excluir.....!!!");
                     break;
                 case 5:
                     tp.listarConsole();

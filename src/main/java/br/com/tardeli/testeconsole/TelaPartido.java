@@ -23,6 +23,7 @@ public class TelaPartido {
 
         System.out.println("Digite o número do partido: ");
         p.setNumero(teclado.nextLong());
+        teclado.nextLine();
         System.out.println("Digite o nome do partido: ");
         p.setNome(teclado.nextLine());
 

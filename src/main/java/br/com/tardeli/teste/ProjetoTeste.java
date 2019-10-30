@@ -25,7 +25,7 @@ public class ProjetoTeste {
         
         //BUSCAR OS PROJETOS CRIADOS POR UM VEREADOR
         System.out.println("BUSCAR OS PROJETOS CRIADOS POR UM VEREADOR");
-        Vereador v = vereadorControle.buscarVereadorPorCodigo(13L);
+        Vereador v = vereadorControle.buscarVereadorPorCodigo(1L);
         listaObjs = projetoControle.buscarProjetosPorVereador(v);
         
         for (Projeto p : listaObjs) {

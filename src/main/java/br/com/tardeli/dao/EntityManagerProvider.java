@@ -14,7 +14,7 @@ public final class EntityManagerProvider {
     private final EntityManagerFactory factory;
 
     private EntityManagerProvider() {
-        this.factory = Persistence.createEntityManagerFactory("atividade");
+        this.factory = Persistence.createEntityManagerFactory("atividade_2");
     }
     
       public static EntityManagerProvider getInstance() {
